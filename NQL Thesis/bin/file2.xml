@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <structure>
+    <field>TRANSACTION_ID</field>
+    <field>PRODUCT_ID</field>
+    <field>PRODUCT_NAME</field>
+    <field>CATEGORY_ID</field>
+    <field>CATEGORY_NAME</field>
+    <field>BRAND_ID</field>
+    <field>BRAND_NAME</field>
+    <field>MANUFACTURER_ID</field>
+    <field>MANUFACTURER_NAME</field>
+    <field>SIZE</field>
+    <field>SIZE_TYPE</field>
+    <field>OUTLET_ID</field>
+    <field>OUTLET_NAME</field>
+    <field>OUTLET_CITY</field>
+    <field>OUTLET_DISTRICT</field>
+    <field>OUTLET_COUNTRY</field>
+    <field>OUTLET_TYPE</field>
+    <field>OUTLET_SIZE</field>
+    <field>CUSTOMER_ID</field>
+    <field>CUSTOMER_NAME</field>
+    <field>DATE_OF_BIRTH</field>
+    <field>GENDER</field>
+    <field>CUSTOMER_CITY</field>
+    <field>QUANTITY</field>
+    <field>PRICE</field>
+  </structure>
+  <calculated_facts>
+    <fact>
+      <name>TD_DATE</name>
+      <calculation>CONVERT(date, getdate())</calculation>
+      <data_binding xsi:type="xsd:string">27/03/2018 00:00:00</data_binding>
+    </fact>
+    <fact>
+      <name>DAY</name>
+      <calculation>DATEPART(dd, @TD_DATE)</calculation>
+      <data_binding xsi:type="xsd:string">27</data_binding>
+    </fact>
+    <fact>
+      <name>WEEK</name>
+      <calculation>DATEPART(wk, @TD_DATE)</calculation>
+      <data_binding xsi:type="xsd:string">13</data_binding>
+    </fact>
+    <fact>
+      <name>MONTH</name>
+      <calculation>DATEPART(mm, @TD_DATE)</calculation>
+      <data_binding xsi:type="xsd:string">3</data_binding>
+    </fact>
+    <fact>
+      <name>YEAR</name>
+      <calculation>DATEPART(yy, @TD_DATE)</calculation>
+      <data_binding xsi:type="xsd:string">2018</data_binding>
+    </fact>
+    <fact>
+      <name>QUARTER</name>
+      <calculation>DATEPART(qq, @TD_DATE)</calculation>
+      <data_binding xsi:type="xsd:string">1</data_binding>
+    </fact>
+  </calculated_facts>
+  <dimensions>
+    <product>
+      <field>
+        <name>PRODUCT_ID</name>
+        <data_binding>Product ID</data_binding>
+      </field>
+      <field>
+        <name>PRODUCT_NAME</name>
+        <data_binding>Product Name</data_binding>
+        <data_binding>Kean Lemonade .33ltr Can</data_binding>
+        <data_binding>Coca Cola .50ltr x3 P.Bottle</data_binding>
+        <data_binding>Kean Vimto .25ltr P.Bottle</data_binding>
+        <data_binding>Epsa Gazoza .232ltr G.Bottle</data_binding>
+        <data_binding>Fanta Twist .33ltr Can</data_binding>
+        <data_binding>Kean Cola .25ltr Bottle</data_binding>
+        <data_binding>Kean Club Soda .25ltr Bottle</data_binding>
+        <data_binding>Kean Clear .25ltr Bottle</data_binding>
+        <data_binding>Kean Lemonade .25ltr P.Bottle</data_binding>
+        <data_binding>7UP 2ltr P.Bottle</data_binding>
+        <data_binding>Kean Lemonade .192ltr G.Bottle</data_binding>
+        <data_binding>Epsa Lemonade .232ltr G.Bottle</data_binding>
+        <data_binding>Kean Vimto .50ltr P.Bottle</data_binding>
+        <data_binding>Fanta Orange .50ltr P.Bottle</data_binding>
+        <data_binding>Pepsi Diet .33ltr Can</data_binding>
+        <data_binding>Pepsi Diet 2ltr P.Bottle</data_binding>
+        <data_binding>Kean Orangeade .33ltr Can</data_binding>
+        <data_binding>Pepsi Max .25ltr G.Bottle</data_binding>
+        <data_binding>Coca Cola Zero 1.5ltr P.Bottle</data_binding>
+        <data_binding>Coca Cola Diet .50ltr x3 P.Bottle</data_binding>
+        <data_binding>Pepsi Max .50ltr P.Bottle</data_binding>
+        <data_binding>Coca Cola 1.5ltr x2 (S/O)</data_binding>
+        <data_binding>Fanta Orange Light .33ltr Can</data_binding>
+        <data_binding>Kean Clear .33ltr Can</data_binding>
+        <data_binding>Pepsi .33ltr Can</data_binding>
+        <data_binding>Sprite 1.5ltr P.Bottle</data_binding>
+        <data_binding>Coca Cola Zero .33ltr Can</data_binding>
+        <data_binding>Fanta Orange .33ltr Can</data_binding>
+        <data_binding>Coca Cola 1.5ltr P.Bottle</data_binding>
+        <data_binding>Fanta Lemonade .33ltr Can</data_binding>
+        <data_binding>Epsa Lemonade .33ltr Can</data_binding>
+        <data_binding>Pepsi Max .33ltr Can</data_binding>
+        <data_binding>Epsa Orange .33ltr Can</data_binding>
+        <data_binding>7UP .33ltr Can</data_binding>
+        <data_binding>Sprite 1.5ltr x2 P.Bottle</data_binding>
+        <data_binding>Kean Rodi Fizzer .30ltr P.Bottle</data_binding>
+        <data_binding>Epsa Orange .232ltr G.Bottle</data_binding>
+        <data_binding>Kean Vimto .33ltr Can</data_binding>
+        <data_binding>Fanta Orange Light .50ltr P.Bottle</data_binding>
+        <data_binding>Coca Cola Diet 1.5ltr x2 (S/O)</data_binding>
+        <data_binding>Pepsi .50ltr P.Bottle</data_binding>
+        <data_binding>Fanta Madness Watermelon .33ltr Can</data_binding>
+        <data_binding>Kean Apple Fizzer .30ltr P.Bottle</data_binding>
+        <data_binding>Coca Cola Light .25ltr G.Bottle</data_binding>
+        <data_binding>Sprite .33ltr Can</data_binding>
+        <data_binding>Pepsi .25ltr G.Bottle</data_binding>
+        <data_binding>Fanta Orange .50ltr x3 P.Bottle</data_binding>
+        <data_binding>Epsa Lemonade Soda .33ltr Can</data_binding>
+        <data_binding>Fanta Orange 1.5ltr P.Bottle</data_binding>
+        <data_binding>Coca Cola Diet .50ltr P.Bottle</data_binding>
+        <data_binding>Epsa Soda Water .232ltr G.Bottle</data_binding>
+        <data_binding>Dr. Pepper .33ltr Can</data_binding>
+        <data_binding>Fanta Wild Berries .33ltr Can</data_binding>
+        <data_binding>Coca Cola Zero .50ltr P.Bottle</data_binding>
+        <data_binding>Epsa Sour Cherry .232ltr G.Bottle</data_binding>
+        <data_binding>Sprite Light .50ltr P.Bottle</data_binding>
+        <data_binding>Epsa Cola .232ltr G.Bottle</data_binding>
+        <data_binding>Sprite Diet .33ltr Can</data_binding>
+        <data_binding>Coca Cola Light 1.5ltr</data_binding>
+        <data_binding>Kean Mandarine .33ltr Can</data_binding>
+        <data_binding>Coca Cola Diet 1.5ltr x2</data_binding>
+        <data_binding>Epsa Cola .33ltr Can</data_binding>
+        <data_binding>Coca Cola .25ltr G.Bottle</data_binding>
+        <data_binding>Kean Orangeade .192ltr G.Bottle</data_binding>
+        <data_binding>Coca Cola Diet .33ltr Can</data_binding>
+        <data_binding>Sprite .50ltr P.Bottle</data_binding>
+        <data_binding>Sprite .50ltr x3 P.Bottle</data_binding>
+        <data_binding>Pepsi Diet .50ltr P.Bottle</data_binding>
+        <data_binding>Pepsi Diet .25ltr G.Bottle</data_binding>
+        <data_binding>Fanta Orange .25ltr G.Bottle</data_binding>
+        <data_binding>Fanta Orange 1.5ltr x2 P.Bottle</data_binding>
+        <data_binding>Pepsi 2ltr P.Bottle</data_binding>
+        <data_binding>Pepsi Max 2ltr P.Bottle</data_binding>
+        <data_binding>Coca Cola .50ltr P.Bottle</data_binding>
+        <data_binding>Epsa Lemonade Soda .232ltr G.Bottle</data_binding>
+        <data_binding>Kean Orangeade .50ltr P.Bottle</data_binding>
+        <data_binding>Coca Cola Diet 1.5ltr P.Bottle</data_binding>
+        <data_binding>Coca Cola .33ltr Can</data_binding>
+        <data_binding>Kean Orangeade .25ltr P.Bottle</data_binding>
+        <data_binding>Coca Cola 1.5ltr x2</data_binding>
+        <data_binding>Coca Cola Diet .25ltr G.Bottle</data_binding>
+        <data_binding>7UP .50ltr P.Bottle</data_binding>
+        <data_binding>Sprite .25ltr G.Bottle</data_binding>
+        <data_binding>7UP .25ltr G.Bottle</data_binding>
+        <data_binding>Epsa Soda Water .33ltr Can</data_binding>
+        <data_binding>Kean Cola .33ltr Can</data_binding>
+        <data_binding>Epsa Tonic Water .232ltr G.Bottle</data_binding>
+        <data_binding>Sprite Diet 1.5ltr P.Bottle</data_binding>
+        <data_binding>Coca Cola Zero .25ltr G.Bottle</data_binding>
+        <data_binding>Kean Orangeade 1.5ltr P.Bottle</data_binding>
+        <data_binding>Pepsi Twist .33ltr Can</data_binding>
+        <data_binding>Sprite 1.5ltr (1.2€ ) P.Bottle</data_binding>
+        <data_binding>Coca Cola 1.5ltr x2 (3€) P.Bottle</data_binding>
+        <data_binding>Sprite Zero .33ltr Can</data_binding>
+        <data_binding>Fanta Zero Orange .33ltr Can</data_binding>
+        <data_binding>Sprite 1.5ltr x2 (3€ ) P.Bottle</data_binding>
+        <data_binding>Kean Mandarinada .25ltr P.Bottle</data_binding>
+        <data_binding>Epsa Sour Cherry .33ltr Can</data_binding>
+        <data_binding>Sprite 1ltr P.Bottle</data_binding>
+        <data_binding>7UP .25ltr x24 G.Bottle</data_binding>
+        <data_binding>7UP .33ltr x8 Can</data_binding>
+        <data_binding>7UP .50ltr x6 P.Bottle</data_binding>
+        <data_binding>Coca Cola .25ltr x24 G.Bottle</data_binding>
+        <data_binding>Coca Cola .33ltr x8 Can</data_binding>
+        <data_binding>Coca Cola .50ltr x6 P.Bottle</data_binding>
+        <data_binding>Coca Cola Diet .33ltr x8 Can</data_binding>
+        <data_binding>Coca Cola Diet .50ltr x6 P.Bottle</data_binding>
+        <data_binding>Coca Cola Light .25ltr x24 G.Bottle</data_binding>
+        <data_binding>Coca Cola Zero .25ltr x24 G.Bottle</data_binding>
+        <data_binding>Coca Cola Zero .33ltr x8 Can</data_binding>
+        <data_binding>Coca Cola Zero .50ltr x6 P.Bottle</data_binding>
+        <data_binding>Epsa Gazoza .232ltr x6 G.Bottle</data_binding>
+        <data_binding>Epsa Lemonade .232ltr x6 G.Bottle</data_binding>
+        <data_binding>Epsa Lemonade .33ltr x4 Can</data_binding>
+        <data_binding>Epsa Lemonade Soda .33ltr x4 Can</data_binding>
+        <data_binding>Epsa Orange .232ltr x6 G.Bottle</data_binding>
+        <data_binding>Epsa Orange .33ltr x4 Can</data_binding>
+        <data_binding>Fanta Lemonade .33ltr x6 Can</data_binding>
+        <data_binding>Fanta Lemonade .33ltr x4 Can</data_binding>
+        <data_binding>Fanta Orange .33ltr x6 Can</data_binding>
+        <data_binding>Fanta Orange .50ltr x6 P.Bottle</data_binding>
+        <data_binding>Fanta Zero Orange .33ltr x4 Can</data_binding>
+        <data_binding>Kean Lemonade .33ltr x6 Can</data_binding>
+        <data_binding>Kean Mandarine .33ltr x6 Can</data_binding>
+        <data_binding>Kean Orangeade .33ltr x6 Can</data_binding>
+        <data_binding>Kean Vimto .33ltr x6 Can</data_binding>
+        <data_binding>Pepsi .33ltr x8 Can</data_binding>
+        <data_binding>Pepsi .50ltr x6 P.Bottle</data_binding>
+        <data_binding>Pepsi Diet .25ltr x24 G.Bottle</data_binding>
+        <data_binding>Pepsi Diet .33ltr x8 Can</data_binding>
+        <data_binding>Pepsi Diet .50ltr x6 P.Bottle</data_binding>
+        <data_binding>Pepsi Max .33ltr x8 Can</data_binding>
+        <data_binding>Pepsi Max .50ltr x6 P.Bottle</data_binding>
+        <data_binding>Pepsi Twist .33ltr x6 Can</data_binding>
+        <data_binding>Sprite .25ltr x24 G.Bottle</data_binding>
+        <data_binding>Sprite .33ltr x8 Can</data_binding>
+        <data_binding>Sprite .50ltr x6 P.Bottle</data_binding>
+        <data_binding>Sprite Diet .33ltr x6 Can</data_binding>
+        <data_binding>Sprite Zero .33ltr x4 Can</data_binding>
+        <data_binding>Fanta Orange .25ltr x24 G.Bottle</data_binding>
+        <data_binding>Pepsi .25ltr x24 G.Bottle</data_binding>
+        <data_binding>Coca Cola Zero .33ltr x24 Can</data_binding>
+        <data_binding>Coca Cola .33ltr x24 Can</data_binding>
+        <data_binding>Kean Clear .33ltr x6 Can</data_binding>
+        <data_binding>Kean Cola .33ltr x6 Can</data_binding>
+        <data_binding>Coca Cola .33ltr x4 Can</data_binding>
+        <data_binding>Coca Cola Light .33ltr x4 Can</data_binding>
+        <data_binding>Coca Cola Zero .33ltr x4 Can</data_binding>
+        <data_binding>Sprite .33ltr x4 Can</data_binding>
+        <data_binding>Fanta Orange .33ltr x4 Can</data_binding>
+        <data_binding>Sprite .33ltr x24 Can</data_binding>
+        <data_binding>Pepsi .33ltr x24 Can</data_binding>
+        <data_binding>7UP .33ltr x24 Can</data_binding>
+        <data_binding>Coca Cola Euro .25ltr x4 G.Bottle</data_binding>
+        <data_binding>zzAAA170Fanta Orange .33ltr x24 Can</data_binding>
+        <data_binding>Coca Cola Diet .50ltr x4 P.Bottle</data_binding>
+        <data_binding>Coca Cola Light .33ltr x24 Can</data_binding>
+        <data_binding>Dr. Pepper Fruits Flavour .33ltr Can</data_binding>
+        <data_binding>Fanta Orange .33ltr x24 Can</data_binding>
+        <data_binding>Coca Cola .15ltr x12</data_binding>
+        <data_binding>Sprite .33ltr x6 Can</data_binding>
+        <data_binding>Fanta Orange Light .33ltr x6 Can</data_binding>
+        <data_binding>Fanta Verdia .33ltr x4 Can</data_binding>
+        <data_binding>Coca Cola 1ltr P.Bottle</data_binding>
+        <data_binding>Coca Cola Zero 1ltr P.Bottle</data_binding>
+        <data_binding>Pepsi Max .33ltr x24 Can</data_binding>
+        <data_binding>Coca Cola Zero 1ltr x6 P.Bottle</data_binding>
+        <data_binding>Pepsi .33ltr x12 Can</data_binding>
+        <data_binding>Pepsi Max .33ltr x12 Can</data_binding>
+        <data_binding>7UP .33ltr x12 Can</data_binding>
+        <data_binding>Coca Cola 2ltr P.Bottle</data_binding>
+        <data_binding>Coca Cola Light 2ltr P.Bottle</data_binding>
+        <data_binding>Coca Cola Zero 2ltr P.Bottle</data_binding>
+        <data_binding>Pepsi .50ltr x4 P.Bottle</data_binding>
+        <data_binding>Coca Cola .50ltr x4 P.Bottle</data_binding>
+        <data_binding>Sprite .50ltr x4 P.Bottle</data_binding>
+        <data_binding>Fanta Orange .50ltr x4 P.Bottle</data_binding>
+        <data_binding>Coca Cola Zero .50ltr x4 P.Bottle</data_binding>
+        <data_binding>Coca Cola Zero .25ltr P.Bottle</data_binding>
+        <data_binding>Coca Cola Light .25ltr P.Bottle</data_binding>
+        <data_binding>Coca Cola .25ltr P.Bottle</data_binding>
+        <data_binding>Pepsi 1ltr P.Bottle</data_binding>
+        <data_binding>Pepsi Diet 1ltr P.Bottle</data_binding>
+        <data_binding>Pepsi Max 1ltr P.Bottle</data_binding>
+        <data_binding>7UP 1ltr P.Bottle</data_binding>
+        <data_binding>Sprite Zero .33ltr x6 Can</data_binding>
+        <data_binding>Kean Orangeade .25ltr x24 P.Bottle</data_binding>
+        <data_binding>Fanta Lemonade .33ltr x24 Can</data_binding>
+        <data_binding>Kean Lemonade .25ltr x24 P.Bottle</data_binding>
+        <data_binding>Epsa Lemonade Light .33ltr Can</data_binding>
+        <data_binding>Epsa Orange Light .33ltr Can</data_binding>
+        <data_binding>Epsa Lemon Cola Light .33ltr Can</data_binding>
+        <data_binding>Epsa Blood Orange .232ltr G.Bottle</data_binding>
+        <data_binding>Epsa Lemon Cola Light .33ltr x4 Can</data_binding>
+        <data_binding>7UP .30ltr x6 Bottle</data_binding>
+        <data_binding>Epsa Lemonade Light .33ltr x4 Can</data_binding>
+        <data_binding>Epsa Orange Light .33ltr x4 Can</data_binding>
+        <data_binding>Pepsi Max .33ltr x6 Can</data_binding>
+        <data_binding>Pepsi Twist .60ltr x4 P.Bottle</data_binding>
+        <data_binding>Coca Cola .15ltr</data_binding>
+        <data_binding>Coca Cola Zero .15ltr x12</data_binding>
+        <data_binding>Kean Orangeade 0%Sugar with Stevia .25ltr P.Bottle</data_binding>
+        <data_binding>Kean Lemonade 0%Sugar with Stevia .25ltr P.Bottle</data_binding>
+        <data_binding>Kean Lemonade 0%Sugar with Stevia .25ltrx24 P.Bott</data_binding>
+        <data_binding>Kean Orangeade 0%Sugar with Stevia .25ltrx24 P.Bot</data_binding>
+        <data_binding>Coca Cola 1ltr x6 P.Bottle</data_binding>
+        <data_binding>Coca Cola Euro2016 .25ltr Aluminium Bottle</data_binding>
+        <data_binding>Epsa Lemonade Pink .33ltr Can</data_binding>
+        <data_binding>Epsa Lemonade Pink .33ltr x4 Can</data_binding>
+        <data_binding>Epsa Lemonade Pink .232ltr G.Bottle</data_binding>
+        <data_binding>Dr. Pepper Zero .33ltr Can</data_binding>
+        <data_binding>Coca Cola .375ltr x8 Can (15%Extra)</data_binding>
+        <data_binding>Coca Cola Zero .375ltr x8 Can (15%Extra)</data_binding>
+        <data_binding>Coca Cola Stevia 0% Sugar .33ltr Can</data_binding>
+        <data_binding>Coca Cola Stevia 0% Sugar .33ltr x6 Can</data_binding>
+        <data_binding>Coca Cola Stevia 0% Sugar 1.5ltr P.Bottle</data_binding>
+        <data_binding>Coca Cola .375ltr Can (15%Extra)</data_binding>
+        <data_binding>Coca Cola Zero .375ltr Can (15%Extra)</data_binding>
+        <data_binding>Kean Orangeade .33ltr x24 Can</data_binding>
+        <data_binding>Kean Lemonade .33ltr x24 Can</data_binding>
+        <data_binding>Kean Vimto .33ltr x24 Can</data_binding>
+        <data_binding>Fanta Orange .35ltr x4 P.Bottle</data_binding>
+        <data_binding>Fanta Orange .35ltr Can</data_binding>
+        <data_binding>Coca Cola Paphos 2017 Limited Editi.25ltr G.Bottle</data_binding>
+        <data_binding>Coca Cola Paphos 2017 Limited Editi.25ltr x24G.Bot</data_binding>
+        <data_binding>Dr. Pepper Cherry .33ltr Can</data_binding>
+        <data_binding>Dr. Pepper Zero 1.5ltr P.Bottle</data_binding>
+        <data_binding>Vimto Still .50ltr P.Bottle</data_binding>
+        <data_binding>Coca Cola Stevia 0% Sugar .33ltr x24 Can</data_binding>
+      </field>
+      <field>
+        <name>PRODUCT_CATEGORY</name>
+        <data_binding>Product Category</data_binding>
+      </field>
+      <field>
+        <name>BRAND_NAME</name>
+        <data_binding>Brand</data_binding>
+        <data_binding>Kean</data_binding>
+        <data_binding>Coca Cola</data_binding>
+        <data_binding>Epsa</data_binding>
+        <data_binding>Fanta</data_binding>
+        <data_binding>7UP</data_binding>
+        <data_binding>Pepsi</data_binding>
+        <data_binding>Sprite</data_binding>
+        <data_binding>Dr. Pepper</data_binding>
+        <data_binding>Vimto</data_binding>
+      </field>
+      <field>
+        <name>Manufacturer Name</name>
+        <data_binding>MANUFACTURER NAME</data_binding>
+      </field>
+      <field>
+        <name>Manufacturer ID</name>
+        <data_binding>MANUFACTURER_ID</data_binding>
+      </field>
+      <field>
+        <name>Distributor Name</name>
+        <data_binding>DISTRIBUTOR NAME</data_binding>
+      </field>
+      <field>
+        <name>DISTRIBUTOR ID</name>
+        <data_binding>DISTRIBUTOR_ID</data_binding>
+      </field>
+      <field>
+        <name>SELECT CLAUSE</name>
+        <data_binding>show</data_binding>
+        <data_binding>display</data_binding>
+      </field>
+      <field>
+        <name>Function</name>
+        <data_binding>sales</data_binding>
+        <data_binding>avarage</data_binding>
+        <data_binding>sum</data_binding>
+        <data_binding>sale</data_binding>
+      </field>
+      <field>
+        <name>Operator</name>
+        <data_binding>over</data_binding>
+        <data_binding>more than</data_binding>
+        <data_binding>greater</data_binding>
+        <data_binding>less than</data_binding>
+        <data_binding>below</data_binding>
+        <data_binding>equals</data_binding>
+        <data_binding>not equals</data_binding>
+      </field>
+    </product>
+    <outlet>
+      <field>
+        <name>OUTLET_ID</name>
+        <data_binding>Outlet ID</data_binding>
+        <data_binding>1</data_binding>
+        <data_binding>2</data_binding>
+        <data_binding>3</data_binding>
+      </field>
+      <field>
+        <name>OUTLET_NAME</name>
+        <data_binding>Outlet Name</data_binding>
+        <data_binding>Test1</data_binding>
+        <data_binding>Test2</data_binding>
+        <data_binding>Test3</data_binding>
+      </field>
+    </outlet>
+    <period />
+    <customer>
+      <field>
+        <name>CUSTOMER_ID</name>
+        <data_binding>Customer ID</data_binding>
+        <data_binding>1</data_binding>
+        <data_binding>2</data_binding>
+      </field>
+      <field>
+        <name>CUSTOMER_NAME</name>
+        <data_binding>Customer Name</data_binding>
+        <data_binding>Vanja</data_binding>
+        <data_binding>Kostas</data_binding>
+      </field>
+      <field>
+        <keyword>Customer date of birth</keyword>
+        <keyword>Date of birth of customer</keyword>
+        <data_binding>CUSTOMER_DOB</data_binding>
+      </field>
+      <field>
+        <keyword>Customer_Gender</keyword>
+        <data_binding>CUSTOMER_GENDER</data_binding>
+      </field>
+      <field>
+        <keyword>Customer City</keyword>
+        <data_binding>CUSTOMER_CITY</data_binding>
+      </field>
+    </customer>
+    <city>
+      <field>
+        <name>CITY_ID</name>
+        <data_binding>city id</data_binding>
+        <data_binding>1</data_binding>
+        <data_binding>2</data_binding>
+        <data_binding>3</data_binding>
+        <data_binding>4</data_binding>
+      </field>
+      <field>
+        <name>CITY_NAME</name>
+        <data_binding>city name</data_binding>
+        <data_binding>Nicosia</data_binding>
+        <data_binding>Limassol</data_binding>
+        <data_binding>Paphos</data_binding>
+        <data_binding>Larnaca</data_binding>
+      </field>
+    </city>
+  </dimensions>
+  <levels>
+    <level>
+      <name>National</name>
+      <value>national</value>
+    </level>
+    <level>
+      <name>OUTLET_DISTRICT</name>
+      <value>Nicosia</value>
+      <value>Larnaca</value>
+      <value>Pafos</value>
+      <value>Limassol</value>
+    </level>
+    <level>
+      <name>OUTLET_GROUP_NAME</name>
+      <value>Supermarket/Hypermarket</value>
+      <value>Bakeries</value>
+      <value>Kiosk</value>
+    </level>
+    <level>
+      <name>OUTLET_CHANNEL_ID</name>
+      <value>Takehome Channel</value>
+      <value>Pharmacies</value>
+      <value>Grocery Channel</value>
+    </level>
+  </levels>
+</language>
