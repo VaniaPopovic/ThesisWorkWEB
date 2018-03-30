@@ -9,19 +9,19 @@
        
        
         <div class="form-group">
-            <asp:TextBox x-webkit-speech id="txtquery" ClientIDMode="Static" runat="server" CssClass="form-control" /> 
-<%--            <button id="start-record-btn" title="Start Recording">Start Recognition</button>--%>
-<%--            <button id="pause-record-btn" title="Pause Recording">Pause Recognition</button>--%>
-<%--            <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>--%>
-            <asp:Button runat="server" Text="Record" ID="startRecognition" CssClass="btn btn-info btn-sm" OnClientClick="myFunction(); return false;" />
-            <asp:Button runat="server" Text="Stop" ID="stopRecognition" CssClass="btn btn-danger btn-sm" OnClientClick="myFunction2(); return false;" />
-           
-            <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>
-            
+            <asp:TextBox id="txtquery" ClientIDMode="Static" runat="server" CssClass="form-control" />             
             <span class="input-group-btn">
                 <asp:Button CssClass="btn btn-default" runat="server" Text="Go" OnClick="OnClick"/>
             </span>
         </div><!-- /input-group -->
+            <asp:Button runat="server" Text="Record" ID="startRecognition" CssClass="btn btn-info btn-sm" OnClientClick="myFunction(); return false;" />
+            <asp:Button runat="server" Text="Stop" ID="stopRecognition" CssClass="btn btn-danger btn-sm" OnClientClick="myFunction2(); return false;" />
+            
+            
+        
+           
+            <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>
+            
      
         <br /><br />
         
@@ -37,169 +37,17 @@
                     <asp:ListItem>Bar Chart</asp:ListItem>
                 </asp:DropDownList>
             </div>
-            <asp:Panel ID="Panel1" runat="server">
-            </asp:Panel>
-            <asp:Button runat="server" CssClass="btn btn-primary" Text="Submit" OnClick="updateParameters"/>
+           
         </div>
-       
+    <div runat="server" Visible="False" ID="Div1" class="alert alert-danger" role="alert">
+        No or wrong presentation type selected
+        <asp:Panel ID="Panel1" runat="server">
+        </asp:Panel>
+        </div>
+        <asp:Button runat="server" CssClass="btn btn-primary" Text="Submit" OnClick="updateParameters"/>
     </div>
 
-<%--    <div class="row">--%>
-<%--        <div class="col-md-4">--%>
-<%--            <h2>Getting started</h2>--%>
-<%--            <p>--%>
-<%--                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.--%>
-<%--            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.--%>
-<%--            </p>--%>
-<%--            <p>--%>
-<%--                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>--%>
-<%--            </p>--%>
-<%--        </div>--%>
-<%--        <div class="col-md-4">--%>
-<%--            <h2>Get more libraries</h2>--%>
-<%--            <p>--%>
-<%--                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.--%>
-<%--            </p>--%>
-<%--            <p>--%>
-<%--                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>--%>
-<%--            </p>--%>
-<%--        </div>--%>
-<%----%>
-<%--        <div class="col-md-4">--%>
-<%--            <h2>Web Hosting</h2>--%>
-<%--            <p>--%>
-<%--                You can easily find a web hosting company that offers the right mix of features and price for your applications.--%>
-<%--            </p>--%>
-<%--            <p>--%>
-<%--                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>--%>
-<%--            </p>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--    <div class="container">--%>
-<%----%>
-<%--        <h1>Voice Controlled Notes App</h1>--%>
-<%--        <p class="page-description">A tiny app that allows you to take notes by recording your voice</p>--%>
-<%--        <p><a class="tz-link" href="https://tutorialzine.com/2017/08/converting-from-speech-to-text-with-javascript">Read the full article on Tutorialzine »</a></p>--%>
-<%----%>
-<%--        <h3 class="no-browser-support">Sorry, Your Browser Doesn't Support the Web Speech API. Try Opening This Demo In Google Chrome.</h3>--%>
-<%----%>
-<%--        <div class="app"> --%>
-<%--            <h3>Add New Note</h3>--%>
-<%--            <div class="input-single">--%>
-<%--                <textarea id="note-textarea" placeholder="Create a new note by typing or using voice recognition." rows="6"></textarea>--%>
-<%--            </div>         --%>
-<%--            <button id="start-record-btn" title="Start Recording">Start Recognition</button>--%>
-<%--            <button id="pause-record-btn" title="Pause Recording">Pause Recognition</button>--%>
-<%--            <button id="save-note-btn" title="Save Note">Save Note</button>   --%>
-<%--            <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>--%>
-<%--                --%>
-<%--            <h3>My Notes</h3>--%>
-<%--            <ul id="notes">--%>
-<%--                <li>--%>
-<%--                    <p class="no-notes">You don't have any notes.</p>--%>
-<%--                </li>--%>
-<%--            </ul>--%>
-<%----%>
-<%--        </div>--%>
-<%--        <textarea id="textarea" rows=10 cols=80></textarea>--%>
-<%--        <button id="button" onclick="toggleStartStop()"></button>--%>
-<%----%>
-<%--        <script type="text/javascript">--%>
-<%--            var recognizing;--%>
-<%--            var recognition = new SpeechRecognition();--%>
-<%--            recognition.continuous = true;--%>
-<%--            reset();--%>
-<%--            recognition.onend = reset;--%>
-<%----%>
-<%--            recognition.onresult = function (event) {--%>
-<%--                for (var i = resultIndex; i < event.results.length; ++i) {--%>
-<%--                    if (event.results.final) {--%>
-<%--                        textarea.value += event.results[i][0].transcript;--%>
-<%--                    }--%>
-<%--                }--%>
-<%--            }--%>
-<%----%>
-<%--            function reset() {--%>
-<%--                recognizing = false;--%>
-<%--                button.innerHTML = "Click to Speak";--%>
-<%--            }--%>
-<%----%>
-<%--            function toggleStartStop() {--%>
-<%--                if (recognizing) {--%>
-<%--                    recognition.stop();--%>
-<%--                    reset();--%>
-<%--                } else {--%>
-<%--                    recognition.start();--%>
-<%--                    recognizing = true;--%>
-<%--                    button.innerHTML = "Click to Stop";--%>
-<%--                }--%>
-<%--            }--%>
-<%--        </script>--%>
-<%----%>
-<%----%>
-<%--    </div>--%>
-<%-- //   <button id="startRecognition">Start Recognition</button>--%>
-<%----%>
-<%--    <textarea id="txtArea"></textarea>--%>
-<%--    <script>--%>
-<%--        $(function () {--%>
-<%--            try {--%>
-<%--                var recognition = new webkitSpeechRecognition();--%>
-<%--            } catch (e) {--%>
-<%--                var recognition = Object;--%>
-<%--            }--%>
-<%--            recognition.continuous = true;--%>
-<%--            recognition.interimResults = true;--%>
-<%--            recognition.onresult = function (event) {--%>
-<%--                var txtRec = '';--%>
-<%--                for (var i = event.resultIndex; i < event.results.length; ++i) {--%>
-<%--                    txtRec += event.results[i][0].transcript;--%>
-<%--                }--%>
-<%--                $('#txtArea').val(txtRec);--%>
-<%--            };--%>
-<%--//            $('#startRecognition').click(function () {--%>
-<%--//                $('#txtArea').focus();--%>
-<%--//                recognition.start();--%>
-<%--//            });--%>
-<%--//            $('#stopRecognition').click(function () {--%>
-<%--//                recognition.stop();--%>
-<%--//            });--%>
-<%----%>
-<%--        });--%>
-<%--        function myFunction() {--%>
-<%--            recognition.start();--%>
-<%--        }--%>
-<%--        function myFunction2() {--%>
-<%--            recognition.stop();--%>
-<%--        }--%>
-<%--    </script>--%>
-    <div class="container">
 
-        <h1>Voice Controlled Notes App</h1>
-        <p class="page-description">A tiny app that allows you to take notes by recording your voice</p>
-        <p><a class="tz-link" href="https://tutorialzine.com/2017/08/converting-from-speech-to-text-with-javascript">Read the full article on Tutorialzine »</a></p>
-
-        <h3 class="no-browser-support">Sorry, Your Browser Doesn't Support the Web Speech API. Try Opening This Demo In Google Chrome.</h3>
-
-        <div class="app"> 
-            <h3>Add New Note</h3>
-            <div class="input-single">
-                <textarea id="note-textarea" placeholder="Create a new note by typing or using voice recognition." rows="6"></textarea>
-            </div>         
-<%--            <button id="start-record-btn" title="Start Recording">Start Recognition</button>--%>
-<%--            <button id="pause-record-btn" title="Pause Recording">Pause Recognition</button>--%>
-            
-                
-            <h3>My Notes</h3>
-            <ul id="notes">
-                <li>
-                    <p class="no-notes">You don't have any notes.</p>
-                </li>
-            </ul>
-
-        </div>
-
-    </div>
     
     <script>
         try {
