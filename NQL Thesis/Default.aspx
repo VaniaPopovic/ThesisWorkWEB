@@ -11,7 +11,7 @@
         <div class="form-group">
             <asp:TextBox id="txtquery" ClientIDMode="Static" runat="server" CssClass="form-control" />             
             <span class="input-group-btn">
-                <asp:Button CssClass="btn btn-default" runat="server" Text="Go" OnClick="OnClick"/>
+                <asp:Button CssClass="btn btn-default" runat="server" Text="Go" OnClick="QueryButtonSubmit"/>
             </span>
         </div><!-- /input-group -->
             <asp:Button runat="server" Text="Record" ID="startRecognition" CssClass="btn btn-info btn-sm" OnClientClick="myFunction(); return false;" />
@@ -39,8 +39,8 @@
             </div>
            
         </div>
-    <div runat="server" Visible="False" ID="Div1" class="alert alert-danger" role="alert">
-        No or wrong presentation type selected
+    <div runat="server" Visible="True" ID="Div1" class="alert alert-danger" role="alert">
+       
         <asp:Panel ID="Panel1" runat="server">
         </asp:Panel>
         </div>

@@ -13,9 +13,6 @@ namespace NQL_Thesis
     public partial class _Default : Page
     {
         private PageState _pageState;
-        bool presentationType = false;
-        string selectedvalue = "";
-
         private int count;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -27,126 +24,116 @@ namespace NQL_Thesis
                 GenerateDynamicControls();
 
         }
-        protected void btnGDynamicCont_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToString(ViewState["Generated"]) != "true")
-            {
-                GenerateDynamicControls();
-                ViewState["Generated"] = "true";
-            }
-            else
-            {
-                Response.Write("<h2>Controls are already exist in page</h2>");
-            }
-        }
+//        protected void btnGDynamicCont_Click(object sender, EventArgs e)
+//        {
+//            if (Convert.ToString(ViewState["Generated"]) != "true")
+//            {
+//                GenerateDynamicControls();
+//                ViewState["Generated"] = "true";
+//            }
+//            else
+//            {
+//                Response.Write("<h2>Controls are already exist in page</h2>");
+//            }
+//        }
 
         public void GenerateDynamicControls()
         {
             var modifiedDictionary = new Dictionary<string, List<string>>();
-            foreach (var VARIABLE in _pageState.myList)
+            foreach (var keyValuePair in _pageState.MyDictionary)
             {
-                var list = VARIABLE.Value.ToList();
+                var list = keyValuePair.Value.ToList();
                 list = list.Distinct().ToList();
-                modifiedDictionary.Add(VARIABLE.Key, list);
+                modifiedDictionary.Add(keyValuePair.Key, list);
             }
 
-            foreach (var VARIABLE in modifiedDictionary)
+            foreach (var keyValuePair in modifiedDictionary)
             {
-                foreach (var v in VARIABLE.Value)
+                foreach (var v in keyValuePair.Value)
                 {
-                    System.Diagnostics.Debug.WriteLine(v + " " + VARIABLE.Key);
+                    //DEBUG 
+                    System.Diagnostics.Debug.WriteLine(v + " " + keyValuePair.Key);
                 }
 
             }
-            foreach (var VARIABLE in modifiedDictionary)
+
+            foreach (var keyValuePair in modifiedDictionary)
             {
-                if (VARIABLE.Value.Count > 1)
+                if (keyValuePair.Value.Count > 1)
 
                 {
-                     if (!(VARIABLE.Value.ElementAt(0).Equals("START_PERIOD") && VARIABLE.Value.ElementAt(1).Equals("END_PERIOD")))
+                     if (!(keyValuePair.Value.ElementAt(0).Equals("START_PERIOD") && keyValuePair.Value.ElementAt(1).Equals("END_PERIOD")))
                         {
                         List<string> tempList = new List<string>();
-                        foreach (var listItem in VARIABLE.Value)
+                        foreach (var listItem in keyValuePair.Value)
                         {
-                            string append = VARIABLE.Key + " as " + listItem;
+                            string append = keyValuePair.Key + " as " + listItem;
                             tempList.Add(append);
                         }
-
+                        //if value has two values eg. duplicate was found, create dynamic dropwdowns
                         DropDownList ddl = new DropDownList();
                         ddl.DataSource = tempList;
-                            ddl.CssClass = "form-control";
+                        ddl.CssClass = "form-control";
                         ddl.DataBind();
                         ddl.ClientIDMode = System.Web.UI.ClientIDMode.Static;
                         ddl.ID = "ddl" + count;
 
                         Panel1.Controls.Add(ddl);
                         count++;
-                    }
+                            _pageState.DuplicatesExist = true;
+                        }
                      else
                      {
-                         _pageState.DisplayList.Add(new Tuple<string, string>(VARIABLE.Value.ElementAt(0), VARIABLE.Key));
-                         _pageState.DisplayList.Add(new Tuple<string, string>(VARIABLE.Value.ElementAt(1), VARIABLE.Key));
+                         _pageState.DisplayList.Add(new Tuple<string, string>(keyValuePair.Value.ElementAt(0), keyValuePair.Key));
+                         _pageState.DisplayList.Add(new Tuple<string, string>(keyValuePair.Value.ElementAt(1), keyValuePair.Key));
                     }
                 }
                 else
                 {
-                    _pageState.DisplayList.Add(new Tuple<string, string>(VARIABLE.Value.ElementAt(0), VARIABLE.Key));
+                    _pageState.DisplayList.Add(new Tuple<string, string>(keyValuePair.Value.ElementAt(0), keyValuePair.Key));
                 }
 
             }
+
+            if (_pageState.DuplicatesExist) Panel1.Visible = true;
         }
 
   
    
 
-        protected void OnClick(object sender, EventArgs e)
+        protected void QueryButtonSubmit(object sender, EventArgs e)
         {
-            multitxt.Text = "";
+            //multitxt.Text = "";
             string query = txtquery.Text;
 
             myParser parser = new myParser();
-            _pageState.myList = new Dictionary<string, List<string>>();
-            _pageState.myList?.Clear();
+            //_pagestate is the presistant version of the dictionary returned from parser. Survives through post-backs
+            _pageState.MyDictionary = new Dictionary<string, List<string>>();
+            //clear if not null
+            _pageState.MyDictionary?.Clear();
 
-            _pageState.myList = parser.Main(query);
+            _pageState.MyDictionary = parser.Main(query);
             System.Diagnostics.Debug.WriteLine("THIS IS DONE");
 
 
-
-          
-            //            foreach (var VARIABLE in _pageState.myList)
-            //            {
-            //                a = a + VARIABLE.Value + "  " + VARIABLE.Key + " \n";
-            //            }
-            //         System.Diagnostics.Debug.WriteLine(a);
-            
             _pageState.DisplayList = new List<Tuple<string, string>>();
             count = 0;
-      //     _pageState.labels = new List<Label>();
-         //   _pageState.dropDownLists = new List<DropDownList>();
-          
-
-            _pageState.dropDowns = count;
+     
             string a = "";
-            foreach (var VARIABLE in _pageState.DisplayList)
+            //GenerateDynamicControls();
+            Panel1.Visible = false;
+            
+            //no presenation type found errors exist
+            foreach (var tuple in _pageState.DisplayList)
             {
-                a = a + VARIABLE.Item1 + " " + VARIABLE.Item2 + "\n";
-
-            }
-
-            multitxt.Text = "";
-            multitxt.Text = a;
-
-            foreach (var VARIABLE in _pageState.DisplayList)
-            {
-                if (VARIABLE.Item1.Equals("PRESENTATION_TYPE"))
+                if (tuple.Item1.Equals("PRESENTATION_TYPE"))
                 {
                     _pageState.Errors = true;
                     break;
                 }
             }
-
-            if (!_pageState.Errors) presentation.Visible = true;
+            //make presentation type div visible
+            if (_pageState.Errors== false) presentation.Visible = true;
 
             if (Convert.ToString(ViewState["Generated"]) != "true")
             {
@@ -157,6 +144,14 @@ namespace NQL_Thesis
             {
                 Response.Write("<h2>Controls are already exist in page</h2>");
             }
+            foreach (var tuple in _pageState.DisplayList)
+            {
+                a = a + tuple.Item1 + " " + tuple.Item2 + "\n";
+
+            }
+
+            multitxt.Text = "";
+            multitxt.Text = a;
         }
 
        
@@ -165,7 +160,7 @@ namespace NQL_Thesis
         {
 
       
-            if (!_pageState.Errors)
+            if (_pageState.Errors== false)
             {
                 _pageState.DisplayList.Add(new Tuple<string, string>("PRESENTATION_TYPE",
                     presentationDropDown.SelectedValue));
@@ -186,16 +181,17 @@ namespace NQL_Thesis
                 }
             }
 
-            foreach (var VARIABLE in appList)
-            {
-                _pageState.DisplayList.Add(VARIABLE);
+            foreach (var item in appList)
+            {   
+                //add items selected
+                _pageState.DisplayList.Add(item);
             }
-            //  DropDownList list =(DropDownList) FindControl("ddl0");
+           
             _pageState.DisplayList = _pageState.DisplayList.Distinct().ToList();
             string a = "";
-            foreach (var VARIABLE in _pageState.DisplayList)
+            foreach (var tuple in _pageState.DisplayList)
             {
-                a = a + VARIABLE.Item1 + " " + VARIABLE.Item2 + "\n";
+                a = a + tuple.Item1 + " " + tuple.Item2 + "\n";
 
             }
             System.Diagnostics.Debug.WriteLine(a);
@@ -203,7 +199,8 @@ namespace NQL_Thesis
             multitxt.Text = "";
             multitxt.Text = a;
             presentation.Visible = false;
-   
+            Panel1.Visible = false;
+
 
         }
         protected void Page_PreRender(object sender, EventArgs e)
@@ -214,11 +211,11 @@ namespace NQL_Thesis
     [Serializable]
     public class PageState
     {
-        public Dictionary<string, List<string>> myList;
+        public Dictionary<string, List<string>> MyDictionary;
         public List<Tuple<string, string>> DisplayList;
 
-        public int dropDowns;
-
+        //public int dropDowns;
+        public bool DuplicatesExist;
         public bool Errors;
         //    public List<DropDownList> dropDownLists;
         // public List<Label> labels;
