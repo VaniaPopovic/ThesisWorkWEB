@@ -124,9 +124,9 @@ namespace NQL_Thesis
             Panel1.Visible = false;
             
             //no presenation type found errors exist
-            foreach (var tuple in _pageState.DisplayList)
+            foreach (var tuple in _pageState.MyDictionary)
             {
-                if (tuple.Item1.Equals("PRESENTATION_TYPE"))
+                if (tuple.Value.ElementAt(0).Equals("PRESENTATION_TYPE"))
                 {
                     _pageState.Errors = true;
                     break;
@@ -140,10 +140,7 @@ namespace NQL_Thesis
                 GenerateDynamicControls();
                 ViewState["Generated"] = "true";
             }
-            else
-            {
-                Response.Write("<h2>Controls are already exist in page</h2>");
-            }
+           
             foreach (var tuple in _pageState.DisplayList)
             {
                 a = a + tuple.Item1 + " " + tuple.Item2 + "\n";
@@ -152,13 +149,14 @@ namespace NQL_Thesis
 
             multitxt.Text = "";
             multitxt.Text = a;
+            extraControls.Visible = true;
         }
 
        
 
         protected void updateParameters(object sender, EventArgs e)
         {
-
+          
       
             if (_pageState.Errors== false)
             {

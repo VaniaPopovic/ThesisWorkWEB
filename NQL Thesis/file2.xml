@@ -421,6 +421,7 @@
     <level>
       <name>National</name>
       <value>national</value>
+      <value>national level</value>
     </level>
     <level>
       <name>OUTLET_DISTRICT</name>
@@ -442,4 +443,12 @@
       <value>Grocery Channel</value>
     </level>
   </levels>
+  <extras>
+    <field>
+      <name>PRESENTATION_TYPE</name>
+      <data_binding>Line Chart</data_binding>
+      <data_binding>Table</data_binding>
+      <data_binding>Bar Chart</data_binding>
+    </field>
+  </extras>
 </language>

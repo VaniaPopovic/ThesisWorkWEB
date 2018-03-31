@@ -49,6 +49,15 @@ namespace NQL_Thesis {
         protected global::System.Web.UI.WebControls.TextBox multitxt;
         
         /// <summary>
+        /// extraControls control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl extraControls;
+        
+        /// <summary>
         /// presentation control.
         /// </summary>
         /// <remarks>
@@ -65,15 +74,6 @@ namespace NQL_Thesis {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList presentationDropDown;
-        
-        /// <summary>
-        /// Div1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
         
         /// <summary>
         /// Panel1 control.

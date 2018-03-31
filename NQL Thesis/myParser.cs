@@ -182,6 +182,10 @@ namespace NQL_Thesis
             //debug sentence
            // line = "Show me the sales of Kean Cola .25ltr Bottle in Nicosia from January 2017 to October 2017 as a line chart.";
             matchedWords?.Clear();
+            nounPhrases?.Clear();
+            nouns?.Clear();
+            adjectivePhrases?.Clear();
+            verbPhrases?.Clear();
             InputStream modelIn = new FileInputStream(HttpRuntime.AppDomainAppPath + "\\Models\\en-parser-chunking.bin");
 
             InputStream modelIn1 = new FileInputStream(HttpRuntime.AppDomainAppPath + "\\Models\\en-ner-date.bin");
@@ -342,15 +346,16 @@ namespace NQL_Thesis
                     if (line.Contains(a)) line = line.replace(a, " ");
                 }
                 if(line.contains(".")) line=line.replace(".","");
+                if (line.contains("-")) line = line.replace("-", " ");
                 System.Diagnostics.Debug.WriteLine("/////////////");
                 System.Diagnostics.Debug.WriteLine("SECOND PARSE STRING " + line);
                 System.Diagnostics.Debug.WriteLine("/////////////");
                 line = line.Trim();
                 topParses = ParserTool.parseLine(line, myParser, 1);
-                nounPhrases.Clear();
-                //dates.Clear();
-                verbPhrases.Clear();
-                nouns.Clear();
+                nounPhrases?.Clear();
+                dates?.Clear();
+                verbPhrases?.Clear();
+                nouns?.Clear();
                 foreach (var p in topParses)
                 {
                     //p.show();
@@ -370,56 +375,9 @@ namespace NQL_Thesis
                 dates = new HashSet<string>(array);
 
 
-                //            foreach (var noun in nouns)
-                //            {
-                //                foreach (var word in matchedWords)
-                //                {
-                //                    if (noun.contains(word.Item2.toLowerCase()))
-                //                    {
-                //                        noun.toLowerCase().replace(word.Item2.toLowerCase(), "");
-                //                    }
-                //                }
-                //            }
-                //            foreach (var noun in verbPhrases)
-                //            {
-                //                foreach (var word in matchedWords)
-                //                {
-                //                    if (noun.toLowerCase().contains(word.Item2.toLowerCase()))
-                //                    {
-                //                        noun.replace(word.Item2.toLowerCase(), "");
-                //                    }
-                //                }
-                //            }
-                //
-                //            foreach (var noun in dates)
-                //            {
-                //                foreach (var word in matchedWords)
-                //                {
-                //                    if (noun.toLowerCase().contains(word.Item2.toLowerCase()))
-                //                    {
-                //                        noun.replace(word.Item2.toLowerCase(), "");
-                //                    }
-                //                }
-                //            }
+                
                 PrintSets();
-//                System.Diagnostics.Debug.WriteLine("\nProcessing Presentation type");
-//
-//                if (nouns.Contains("table"))
-//                {
-//                    matchedWords.Add(new Tuple<string, string>("PRESENTATION_TYPE", "table"));
-//                }
-//                if (nounPhrases.Contains("pie chart"))
-//                {
-//                    matchedWords.Add(new Tuple<string, string>("PRESENTATION_TYPE", "pie chart"));
-//                }
-//                if (nounPhrases.Contains("bar chart"))
-//                {
-//                    matchedWords.Add(new Tuple<string, string>("PRESENTATION_TYPE", "bar chart"));
-//                }
-//                if (nounPhrases.Contains("line chart"))
-//                {
-//                    matchedWords.Add(new Tuple<string, string>("PRESENTATION_TYPE", "line chart"));
-               // }
+
                 System.Diagnostics.Debug.WriteLine("\nProcessing Dates");
 
 

@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>Best NQL 5/7</h1>
+        <h1>NQL Parser</h1>
         <p class="lead">Type your query here:</p>
         
        
@@ -26,7 +26,7 @@
         <br /><br />
         
         <asp:TextBox ID="multitxt" runat="server" TextMode="MultiLine" CssClass="form-control" Rows="10"></asp:TextBox>
-        
+        <div runat="server" ID="extraControls" Visible="false">
         <div runat="server" Visible="False" ID="presentation" class="alert alert-danger" role="alert">
             No or wrong presentation type selected
             <div class="form-group">
@@ -39,14 +39,14 @@
             </div>
            
         </div>
-    <div runat="server" Visible="True" ID="Div1" class="alert alert-danger" role="alert">
+<%--    <div runat="server" Visible="True" ID="Div1" class="alert alert-danger" role="alert">--%>
        
-        <asp:Panel ID="Panel1" runat="server">
+        <asp:Panel ID="Panel1" runat="server" CssClass="alert alert-danger">
         </asp:Panel>
         </div>
         <asp:Button runat="server" CssClass="btn btn-primary" Text="Submit" OnClick="updateParameters"/>
+<%--    </div>--%>
     </div>
-
 
     
     <script>
