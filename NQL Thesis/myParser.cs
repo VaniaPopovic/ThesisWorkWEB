@@ -306,13 +306,33 @@ namespace NQL_Thesis
 
 
                 var doc = new XmlDocument();
-                System.Diagnostics.Debug.WriteLine(HttpRuntime.AppDomainAppPath);
-                System.Diagnostics.Debug.WriteLine(HttpRuntime.AppDomainAppPath);
-                System.Diagnostics.Debug.WriteLine(HttpRuntime.AppDomainAppPath);
-                System.Diagnostics.Debug.WriteLine(HttpRuntime.AppDomainAppPath);
+//                System.Diagnostics.Debug.WriteLine(HttpRuntime.AppDomainAppPath);
+//                System.Diagnostics.Debug.WriteLine(HttpRuntime.AppDomainAppPath);
+//                System.Diagnostics.Debug.WriteLine(HttpRuntime.AppDomainAppPath);
+//                System.Diagnostics.Debug.WriteLine(HttpRuntime.AppDomainAppPath);
                 doc.Load(HttpRuntime.AppDomainAppPath+"\\file2.xml");
+                
+
                 var root = doc.SelectSingleNode("*");
                 FindMatchingNodesFromXml(root, nounPhrases);
+
+                if (nouns != null)
+                {
+                    for (int i = nouns.Count - 1; i >= 0; i--)
+                    {
+                        foreach (var VARIABLE in matchedWords)
+                        {
+                            if (VARIABLE.Key.contains(nouns.ElementAt(i)))
+                            {
+                                nouns.Remove(nouns.ElementAt(i));
+                            }
+
+                            // some code
+                            // safePendingList.RemoveAt(i);
+                        }
+                    }
+                }
+
                 FindMatchingNodesFromXml(root, verbPhrases);
                 FindMatchingNodesFromXml(root, nouns);
 
@@ -364,6 +384,23 @@ namespace NQL_Thesis
                 }
 
                 FindMatchingNodesFromXml(root, nounPhrases);
+
+                if (nouns != null)
+                {
+                    for (int i = nouns.Count - 1; i >= 0; i--)
+                    {
+                        foreach (var VARIABLE in matchedWords)
+                        {
+                            if (VARIABLE.Key.contains(nouns.ElementAt(i)))
+                            {
+                                nouns.Remove(nouns.ElementAt(i));
+                            }
+
+                            // some code
+                            // safePendingList.RemoveAt(i);
+                        }
+                    }
+                }
                 FindMatchingNodesFromXml(root, verbPhrases);
                 FindMatchingNodesFromXml(root, nouns);
 

@@ -455,9 +455,9 @@
   </extras>
   <result>
     <fact_table>PROCESSED_DATA</fact_table>
-    <WHERE>PERIOD_ID BETWEEN January 2017 AND January 2017 AND BRAND_NAME='Coca Cola' AND OUTLET_DISTRICT='Nicosia' </WHERE>
-    <SELECT>BRAND_NAME, sales, OUTLET_DISTRICT </SELECT>
-    <GROUP_BY>BRAND_NAME, OUTLET_DISTRICT </GROUP_BY>
+    <WHERE>PERIOD_ID BETWEEN  January 2017 AND October 2017 AND PRODUCT_NAME='Kean Cola .25ltr Bottle' AND CITY_NAME='Nicosia' </WHERE>
+    <SELECT>PRODUCT_NAME, sales, CITY_NAME </SELECT>
+    <GROUP_BY>PRODUCT_NAME, CITY_NAME </GROUP_BY>
     <FROM>MY_TABLE?? </FROM>
   </result>
 </language>
