@@ -37,6 +37,8 @@ namespace NQL_Thesis
 //            }
 //        }
 
+        
+
         public void GenerateDynamicControls()
         {
             var modifiedDictionary = new Dictionary<string, List<string>>();
@@ -198,6 +200,8 @@ namespace NQL_Thesis
             multitxt.Text = a;
             presentation.Visible = false;
             Panel1.Visible = false;
+            Session["Pairs"] = _pageState.DisplayList;
+            Response.Redirect("Results.aspx");
 
 
         }

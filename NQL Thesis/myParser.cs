@@ -43,7 +43,7 @@ namespace NQL_Thesis
         private static Dictionary<string, List<string>> matchedWords = new Dictionary<string, List<string>>();
       
         //      private static String line = "Display the sales of coca cola 5ltr";
-        private string[] stopWordsofwordnet = { "from", "to", "me", "the", "of", "a", "a ", "as","." };
+        private string[] stopWordsofwordnet = { "from", "to", "me", "the", "of", "a", "a ", "as",".","between","and" };
 
         private static void FindMatchingNodesFromXml(XmlNode node, HashSet<string> set)
         {

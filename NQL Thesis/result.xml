@@ -31,32 +31,32 @@
     <fact>
       <name>TD_DATE</name>
       <calculation>CONVERT(date, getdate())</calculation>
-      <data_binding xsi:type="xsd:string">27/03/2018 00:00:00</data_binding>
+      <data_binding>27/03/2018 00:00:00</data_binding>
     </fact>
     <fact>
       <name>DAY</name>
       <calculation>DATEPART(dd, @TD_DATE)</calculation>
-      <data_binding xsi:type="xsd:string">27</data_binding>
+      <data_binding>27</data_binding>
     </fact>
     <fact>
       <name>WEEK</name>
       <calculation>DATEPART(wk, @TD_DATE)</calculation>
-      <data_binding xsi:type="xsd:string">13</data_binding>
+      <data_binding>13</data_binding>
     </fact>
     <fact>
       <name>MONTH</name>
       <calculation>DATEPART(mm, @TD_DATE)</calculation>
-      <data_binding xsi:type="xsd:string">3</data_binding>
+      <data_binding>3</data_binding>
     </fact>
     <fact>
       <name>YEAR</name>
       <calculation>DATEPART(yy, @TD_DATE)</calculation>
-      <data_binding xsi:type="xsd:string">2018</data_binding>
+      <data_binding>2018</data_binding>
     </fact>
     <fact>
       <name>QUARTER</name>
       <calculation>DATEPART(qq, @TD_DATE)</calculation>
-      <data_binding xsi:type="xsd:string">1</data_binding>
+      <data_binding>1</data_binding>
     </fact>
   </calculated_facts>
   <dimensions>
@@ -454,10 +454,10 @@
     </field>
   </extras>
   <result>
-  <fact_table>PROCESSED_DATA</fact_table>
-  <WHERE></WHERE>
-  <SELECT></SELECT>
-  <FROM></FROM>
-  <GROUP_BY></GROUP_BY>
+    <fact_table>PROCESSED_DATA</fact_table>
+    <WHERE>PERIOD_ID BETWEEN January 2017 AND January 2017 AND BRAND_NAME='Coca Cola' AND OUTLET_DISTRICT='Nicosia' </WHERE>
+    <SELECT>BRAND_NAME, sales, OUTLET_DISTRICT </SELECT>
+    <GROUP_BY>BRAND_NAME, OUTLET_DISTRICT </GROUP_BY>
+    <FROM>MY_TABLE?? </FROM>
   </result>
 </language>
