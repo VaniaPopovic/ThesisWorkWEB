@@ -137,8 +137,18 @@ namespace NQL_Thesis
                     break;
                 }
             }
+            foreach (var tuple in _pageState.MyDictionary)
+            {
+                if (tuple.Value.ElementAt(0).Equals("FUNCTION"))
+                {
+                    _pageState.Function = true;
+                    break;
+                }
+            }
             //make presentation type div visible
             if (_pageState.Errors== false) presentation.Visible = true;
+
+            if (_pageState.Function == false) Div1.Visible = true;
 
             if (Convert.ToString(ViewState["Generated"]) != "true")
             {
@@ -167,6 +177,11 @@ namespace NQL_Thesis
             {
                 _pageState.DisplayList.Add(new Tuple<string, string>("PRESENTATION_TYPE",
                     presentationDropDown.SelectedValue));
+            }
+            if (_pageState.Function == false)
+            {
+                _pageState.DisplayList.Add(new Tuple<string, string>("FUNCTION",
+                    DropDownList1.SelectedValue));
             }
 
             var appList = new List<Tuple<string,string>>();
@@ -222,6 +237,8 @@ namespace NQL_Thesis
         //public int dropDowns;
         public bool DuplicatesExist;
         public bool Errors;
+
+        public bool Function;
         //    public List<DropDownList> dropDownLists;
         // public List<Label> labels;
     }

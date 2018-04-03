@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -24,10 +25,7 @@ namespace NQL_Thesis
         {
             using (var conn = new SqlConnection())
             {
-                conn.ConnectionString =
-                    "Data Source=DESKTOP-7BV2G10;Initial Catalog=NQL;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-                conn.ConnectionString =
-                    "Data Source=DESKTOP-7BV2G10;Initial Catalog=NQL;Integrated Security=True;";
+                conn.ConnectionString = ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString;
                 conn.Open();
 
                 SqlCommand command = new SqlCommand(query, conn);
@@ -187,21 +185,24 @@ namespace NQL_Thesis
 
             query += from;
             loadedObject.result.FROM = from;
-            query += "\nWHERE ";
-            last = WHERE.Last();
-            string where = "";
-            foreach (var VARIABLE in WHERE)
+            if (WHERE.Count > 0)
             {
-                //   query += VARIABLE;
-                if (VARIABLE.Equals(last))
+                query += "\nWHERE ";
+                last = WHERE.Last();
+                string where = "";
+                foreach (var VARIABLE in WHERE)
                 {
-                    where += VARIABLE + " ";
+                    //   query += VARIABLE;
+                    if (VARIABLE.Equals(last))
+                    {
+                        where += VARIABLE + " ";
+                    }
+                    else where += VARIABLE + " AND ";
                 }
-                else where += VARIABLE + " AND ";
-            }
 
-            query += where;
-            loadedObject.result.WHERE = where;
+                query += where;
+                loadedObject.result.WHERE = where;
+            }
 
             query += "\nGROUP BY ";
             last = GROUP_BY.Last();
@@ -236,7 +237,7 @@ namespace NQL_Thesis
             gridView.DataSource = dt;
             gridView.DataBind();
             gridView.UseAccessibleHeader = true;
-            gridView.HeaderRow.TableSection = TableRowSection.TableHeader;
+         //   gridView.HeaderRow.TableSection = TableRowSection.TableHeader;
             DataColumnCollection columns = dt.Columns;
             string myStr = "";
             if (columns.Contains("SALES_VALUE"))

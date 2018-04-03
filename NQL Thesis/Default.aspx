@@ -17,11 +17,16 @@
             <asp:Button runat="server" Text="Record" ID="startRecognition" CssClass="btn btn-info btn-sm" OnClientClick="myFunction(); return false;" />
             <asp:Button runat="server" Text="Stop" ID="stopRecognition" CssClass="btn btn-danger btn-sm" OnClientClick="myFunction2(); return false;" />
             
-            
-        
+       
            
-            <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>
-            
+            <p id="recording-instructions">Press the <strong>Record</strong> button and allow access.</p>
+<%--        <br /><br />--%>
+<%--        <div class="btn-group">--%>
+<%--            <button type="button" class="btn btn-primary OnClientClick="myFunction2(); return false;">Sample Query 1</button>--%>
+<%--            <button type="button" class="btn btn-primary">Sample Query 2</button>--%>
+<%--            <button type="button" class="btn btn-primary">Sample Query 3</button>--%>
+<%--        </div>--%>
+
      
         <br /><br />
         
@@ -39,6 +44,19 @@
             </div>
            
         </div>
+            
+            <div runat="server" Visible="False" ID="Div1" class="alert alert-danger" role="alert">
+                No function selected
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select one</label>
+                    <asp:DropDownList class="form-control" id="DropDownList1" runat="server">
+                        <asp:ListItem>Sales Quantity</asp:ListItem>
+                        <asp:ListItem>Sales Volume</asp:ListItem>
+                        <asp:ListItem>Sales Value</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+           
+            </div>
 <%--    <div runat="server" Visible="True" ID="Div1" class="alert alert-danger" role="alert">--%>
        
         <asp:Panel ID="Panel1" runat="server" CssClass="alert alert-danger">

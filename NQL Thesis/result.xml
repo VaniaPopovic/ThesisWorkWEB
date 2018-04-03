@@ -463,7 +463,7 @@
   </extras>
   <result>
     <fact_table>PROCESSED_DATA</fact_table>
-    <WHERE xsi:type="xsd:string">PERIOD_ID BETWEEN [NQL].[dbo].[GET_PERIOD_ID]('January 2017') AND [NQL].[dbo].[GET_PERIOD_ID]('February 2017') AND BRAND_NAME='Coca Cola' AND OUTLET_DISTRICT='Nicosia' </WHERE>
+    <WHERE xsi:type="xsd:string">PERIOD_ID BETWEEN [NQL].[dbo].[GET_PERIOD_ID]('January 2020') AND [NQL].[dbo].[GET_PERIOD_ID]('January 2020') AND BRAND_NAME='Coca Cola' AND OUTLET_DISTRICT='Nicosia' </WHERE>
     <SELECT xsi:type="xsd:string">BRAND_NAME, PERIOD_NAME, OUTLET_DISTRICT, SUM(SALES_QUANTITY) AS SALES_QUANTITY </SELECT>
     <FROM xsi:type="xsd:string">[NQL].[dbo].[PROCESSED_DATA] </FROM>
     <GROUP_BY xsi:type="xsd:string">BRAND_NAME, PERIOD_NAME, OUTLET_DISTRICT </GROUP_BY>
