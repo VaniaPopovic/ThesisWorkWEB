@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <structure>
+    <field>TRANSACTION_ID</field>
+    <field>PRODUCT_ID</field>
+    <field>PRODUCT_NAME</field>
+    <field>CATEGORY_ID</field>
+    <field>CATEGORY_NAME</field>
+    <field>BRAND_ID</field>
+    <field>BRAND_NAME</field>
+    <field>SIZE</field>
+    <field>SIZE_TYPE</field>
+    <field>OUTLET_ID</field>
+    <field>OUTLET_NAME</field>
+    <field>OUTLET_CITY</field>
+    <field>OUTLET_DISTRICT</field>
+  
+  
+  </structure>
+  <calculated_facts>
+    <fact>
+      <name>TD_DATE</name>
+      <calculation>CONVERT(date, getdate())</calculation>
+      <data_binding></data_binding>
+    </fact>
+    <fact>
+      <name>DAY</name>
+      <calculation>DATEPART(dd, @TD_DATE)</calculation>
+      <data_binding></data_binding>
+    </fact>
+    <fact>
+      <name>WEEK</name>
+      <calculation>DATEPART(wk, @TD_DATE)</calculation>
+      <data_binding></data_binding>
+    </fact>
+    <fact>
+      <name>MONTH</name>
+      <calculation>DATEPART(mm, @TD_DATE)</calculation>
+      <data_binding></data_binding>
+    </fact>
+    <fact>
+      <name>YEAR</name>
+      <calculation>DATEPART(yy, @TD_DATE)</calculation>
+      <data_binding></data_binding>
+    </fact>
+    <fact>
+      <name>QUARTER</name>
+      <calculation>DATEPART(qq, @TD_DATE)</calculation>
+      <data_binding></data_binding>
+    </fact>
+  </calculated_facts>
+  <dimensions>
+    <product>
+      <field>
+        <name>PRODUCT_ID</name>
+        <data_binding>Product ID</data_binding>
+      </field>
+      <field>
+        <name>PRODUCT_NAME</name>
+        <data_binding>Product Name</data_binding>
+      </field>
+      <field>
+        <name>PRODUCT_CATEGORY</name>
+        <data_binding>Product Category</data_binding>
+      </field>
+      <field>
+        <name>BRAND_NAME</name>
+        <data_binding>Brand</data_binding>
+      </field>
+     
+      
+    </product>
+    <outlet>
+      <field>
+        <name>OUTLET_ID</name>
+        <data_binding>Outlet ID</data_binding>
+      </field>
+      <field>
+        <name>OUTLET_NAME</name>
+        <data_binding>Outlet Name</data_binding>
+      </field>
+    </outlet>
+    <period>
+      <name>PERIOD_ID</name>
+      <data_binding></data_binding>
+     <name>PERIOD_NAME</name>
+      <data_binding></data_binding>
+    </period>
+    <city>
+      <field>
+        <name>CITY_ID</name>
+        <data_binding>city id</data_binding>
+      </field>
+      <field>
+        <name>CITY_NAME</name>
+        <data_binding>city name</data_binding>
+      </field>
+    </city>
+  </dimensions>
+  <levels>
+    <level>
+      <name>National</name>
+      <value>national</value>
+      <value>national level</value>
+    </level>
+    <level>
+      <name>OUTLET_DISTRICT</name>
+      <value>Nicosia</value>
+      <value>Larnaca</value>
+      <value>Pafos</value>
+      <value>Limassol</value>
+	  <value>Famagusta</value>
+    </level>
+    <level>
+      <name>OUTLET_GROUP_NAME</name>
+      <value>Supermarket/Hypermarket</value>
+      <value>Supermarket</value>
+      <value>Supermarkets</value>
+      <value>Bakeries</value>
+      <value>Kiosk</value>
+    </level>
+    <level>
+      <name>OUTLET_CHANNEL_ID</name>
+      <value>Takehome Channel</value>
+      <value>Pharmacies</value>
+      <value>Grocery Channel</value>
+    </level>
+  </levels>
+  <extras>
+  
+  <field>
+        <name>SELECT CLAUSE</name>
+        <data_binding>show</data_binding>
+        <data_binding>display</data_binding>
+      </field>
+      <field>
+        <name>Function</name>
+<!--        <data_binding>sales</data_binding>-->
+        <data_binding>avarage</data_binding>
+        <data_binding>sum</data_binding>
+        <data_binding>sale</data_binding>
+      </field>
+      <field>
+        <name>Operator</name>
+        <data_binding>over</data_binding>
+        <data_binding>more than</data_binding>
+        <data_binding>greater</data_binding>
+        <data_binding>less than</data_binding>
+        <data_binding>below</data_binding>
+        <data_binding>equals</data_binding>
+        <data_binding>not equals</data_binding>
+      </field>
+    <field>
+      <name>PRESENTATION_TYPE</name>
+      <data_binding>Line Chart</data_binding>
+      <data_binding>Table</data_binding>
+      <data_binding>Bar Chart</data_binding>
+    </field>
+    <field>
+      <name>FUNCTION</name>
+      <data_binding>sales value</data_binding>
+      <data_binding>sale value</data_binding>
+    </field>
+    <field>
+      <name>FUNCTION</name>
+      <data_binding>sales volume</data_binding>
+      <data_binding>sale volume</data_binding>
+    </field>
+    <field>
+      <name>FUNCTION</name>
+      <data_binding>sales</data_binding>
+      <data_binding>sale</data_binding>
+    <data_binding>sales items</data_binding>
+    </field>
+  </extras>
+  <result>
+  <fact_table>PROCESSED_DATA</fact_table>
+  <WHERE></WHERE>
+  <SELECT></SELECT>
+  <FROM></FROM>
+  <GROUP_BY></GROUP_BY>
+  </result>
+</language>

@@ -43,8 +43,9 @@
        
         <asp:Panel ID="Panel1" runat="server" CssClass="alert alert-danger">
         </asp:Panel>
+            <asp:Button runat="server" CssClass="btn btn-primary" Text="Submit" OnClick="updateParameters"/>
         </div>
-        <asp:Button runat="server" CssClass="btn btn-primary" Text="Submit" OnClick="updateParameters"/>
+      
 <%--    </div>--%>
     </div>
 

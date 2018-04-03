@@ -95,3 +95,4 @@ c:\users\fream\onedrive\documents\visual studio 2015\Projects\NQL Thesis\NQL The
 c:\users\fream\onedrive\documents\visual studio 2015\Projects\NQL Thesis\NQL Thesis\bin\opennlp-tools-1.8.4.dll
 c:\users\fream\onedrive\documents\visual studio 2015\Projects\NQL Thesis\NQL Thesis\bin\opennlp-uima-1.8.4.dll
 c:\users\fream\onedrive\documents\visual studio 2015\Projects\NQL Thesis\NQL Thesis\bin\Syn.WordNet.dll
+C:\Users\fream\OneDrive\Documents\Visual Studio 2015\Projects\NQL Thesis\NQL Thesis\bin\DotNet.Highcharts.dll

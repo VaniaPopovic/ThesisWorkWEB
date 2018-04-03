@@ -8,55 +8,43 @@
     <field>CATEGORY_NAME</field>
     <field>BRAND_ID</field>
     <field>BRAND_NAME</field>
-    <field>MANUFACTURER_ID</field>
-    <field>MANUFACTURER_NAME</field>
     <field>SIZE</field>
     <field>SIZE_TYPE</field>
     <field>OUTLET_ID</field>
     <field>OUTLET_NAME</field>
     <field>OUTLET_CITY</field>
     <field>OUTLET_DISTRICT</field>
-    <field>OUTLET_COUNTRY</field>
-    <field>OUTLET_TYPE</field>
-    <field>OUTLET_SIZE</field>
-    <field>CUSTOMER_ID</field>
-    <field>CUSTOMER_NAME</field>
-    <field>DATE_OF_BIRTH</field>
-    <field>GENDER</field>
-    <field>CUSTOMER_CITY</field>
-    <field>QUANTITY</field>
-    <field>PRICE</field>
   </structure>
   <calculated_facts>
     <fact>
       <name>TD_DATE</name>
       <calculation>CONVERT(date, getdate())</calculation>
-      <data_binding xsi:type="xsd:string">27/03/2018 00:00:00</data_binding>
+      <data_binding>03/04/2018 00:00:00</data_binding>
     </fact>
     <fact>
       <name>DAY</name>
       <calculation>DATEPART(dd, @TD_DATE)</calculation>
-      <data_binding xsi:type="xsd:string">27</data_binding>
+      <data_binding>3</data_binding>
     </fact>
     <fact>
       <name>WEEK</name>
       <calculation>DATEPART(wk, @TD_DATE)</calculation>
-      <data_binding xsi:type="xsd:string">13</data_binding>
+      <data_binding>14</data_binding>
     </fact>
     <fact>
       <name>MONTH</name>
       <calculation>DATEPART(mm, @TD_DATE)</calculation>
-      <data_binding xsi:type="xsd:string">3</data_binding>
+      <data_binding>4</data_binding>
     </fact>
     <fact>
       <name>YEAR</name>
       <calculation>DATEPART(yy, @TD_DATE)</calculation>
-      <data_binding xsi:type="xsd:string">2018</data_binding>
+      <data_binding>2018</data_binding>
     </fact>
     <fact>
       <name>QUARTER</name>
       <calculation>DATEPART(qq, @TD_DATE)</calculation>
-      <data_binding xsi:type="xsd:string">1</data_binding>
+      <data_binding>2</data_binding>
     </fact>
   </calculated_facts>
   <dimensions>
@@ -315,44 +303,6 @@
         <data_binding>Dr. Pepper</data_binding>
         <data_binding>Vimto</data_binding>
       </field>
-      <field>
-        <name>Manufacturer Name</name>
-        <data_binding>MANUFACTURER NAME</data_binding>
-      </field>
-      <field>
-        <name>Manufacturer ID</name>
-        <data_binding>MANUFACTURER_ID</data_binding>
-      </field>
-      <field>
-        <name>Distributor Name</name>
-        <data_binding>DISTRIBUTOR NAME</data_binding>
-      </field>
-      <field>
-        <name>DISTRIBUTOR ID</name>
-        <data_binding>DISTRIBUTOR_ID</data_binding>
-      </field>
-      <field>
-        <name>SELECT CLAUSE</name>
-        <data_binding>show</data_binding>
-        <data_binding>display</data_binding>
-      </field>
-      <field>
-        <name>Function</name>
-        <data_binding>sales</data_binding>
-        <data_binding>avarage</data_binding>
-        <data_binding>sum</data_binding>
-        <data_binding>sale</data_binding>
-      </field>
-      <field>
-        <name>Operator</name>
-        <data_binding>over</data_binding>
-        <data_binding>more than</data_binding>
-        <data_binding>greater</data_binding>
-        <data_binding>less than</data_binding>
-        <data_binding>below</data_binding>
-        <data_binding>equals</data_binding>
-        <data_binding>not equals</data_binding>
-      </field>
     </product>
     <outlet>
       <field>
@@ -361,43 +311,41 @@
         <data_binding>1</data_binding>
         <data_binding>2</data_binding>
         <data_binding>3</data_binding>
+        <data_binding>4</data_binding>
+        <data_binding>5</data_binding>
+        <data_binding>6</data_binding>
+        <data_binding>7</data_binding>
+        <data_binding>8</data_binding>
+        <data_binding>9</data_binding>
+        <data_binding>10</data_binding>
+        <data_binding>11</data_binding>
+        <data_binding>12</data_binding>
+        <data_binding>13</data_binding>
       </field>
       <field>
         <name>OUTLET_NAME</name>
         <data_binding>Outlet Name</data_binding>
-        <data_binding>Test1</data_binding>
-        <data_binding>Test2</data_binding>
-        <data_binding>Test3</data_binding>
+        <data_binding>Alphamega Akropoli</data_binding>
+        <data_binding>Alphamega Engomi</data_binding>
+        <data_binding>Alphamega Latsia</data_binding>
+        <data_binding>Alphamega Deftera</data_binding>
+        <data_binding>Alphamega Kamares</data_binding>
+        <data_binding>METRO Supermarket Larnaca</data_binding>
+        <data_binding>METRO Supermarket Limassol</data_binding>
+        <data_binding>Papantoniou Supermarket</data_binding>
+        <data_binding>METRO Supermarket Aglantzia</data_binding>
+        <data_binding>Papantoniou Limassol Ipsonas</data_binding>
+        <data_binding>Sklavenitis Paralimni</data_binding>
+        <data_binding>METRO Supermarket Paralimni</data_binding>
+        <data_binding>Lidl</data_binding>
       </field>
     </outlet>
-    <period />
-    <customer>
-      <field>
-        <name>CUSTOMER_ID</name>
-        <data_binding>Customer ID</data_binding>
-        <data_binding>1</data_binding>
-        <data_binding>2</data_binding>
-      </field>
-      <field>
-        <name>CUSTOMER_NAME</name>
-        <data_binding>Customer Name</data_binding>
-        <data_binding>Vanja</data_binding>
-        <data_binding>Kostas</data_binding>
-      </field>
-      <field>
-        <keyword>Customer date of birth</keyword>
-        <keyword>Date of birth of customer</keyword>
-        <data_binding>CUSTOMER_DOB</data_binding>
-      </field>
-      <field>
-        <keyword>Customer_Gender</keyword>
-        <data_binding>CUSTOMER_GENDER</data_binding>
-      </field>
-      <field>
-        <keyword>Customer City</keyword>
-        <data_binding>CUSTOMER_CITY</data_binding>
-      </field>
-    </customer>
+    <period>
+      <name>PERIOD_ID</name>
+      <data_binding />
+      <name>PERIOD_NAME</name>
+      <data_binding />
+    </period>
     <city>
       <field>
         <name>CITY_ID</name>
@@ -406,6 +354,17 @@
         <data_binding>2</data_binding>
         <data_binding>3</data_binding>
         <data_binding>4</data_binding>
+        <data_binding>5</data_binding>
+        <data_binding>6</data_binding>
+        <data_binding>7</data_binding>
+        <data_binding>8</data_binding>
+        <data_binding>9</data_binding>
+        <data_binding>10</data_binding>
+        <data_binding>11</data_binding>
+        <data_binding>12</data_binding>
+        <data_binding>13</data_binding>
+        <data_binding>14</data_binding>
+        <data_binding>15</data_binding>
       </field>
       <field>
         <name>CITY_NAME</name>
@@ -414,6 +373,17 @@
         <data_binding>Limassol</data_binding>
         <data_binding>Paphos</data_binding>
         <data_binding>Larnaca</data_binding>
+        <data_binding>Famagusta</data_binding>
+        <data_binding>Strovolos</data_binding>
+        <data_binding>Engomi</data_binding>
+        <data_binding>Latsia</data_binding>
+        <data_binding>Aglantzia</data_binding>
+        <data_binding>Paralimni</data_binding>
+        <data_binding>Ipsonas</data_binding>
+        <data_binding>Germasogia</data_binding>
+        <data_binding>Deftera</data_binding>
+        <data_binding>Pissouri</data_binding>
+        <data_binding>Kamares</data_binding>
       </field>
     </city>
   </dimensions>
@@ -429,6 +399,7 @@
       <value>Larnaca</value>
       <value>Pafos</value>
       <value>Limassol</value>
+      <value>Famagusta</value>
     </level>
     <level>
       <name>OUTLET_GROUP_NAME</name>
@@ -447,17 +418,54 @@
   </levels>
   <extras>
     <field>
+      <name>SELECT CLAUSE</name>
+      <data_binding>show</data_binding>
+      <data_binding>display</data_binding>
+    </field>
+    <field>
+      <name>Function</name>
+      <data_binding>avarage</data_binding>
+      <data_binding>sum</data_binding>
+      <data_binding>sale</data_binding>
+    </field>
+    <field>
+      <name>Operator</name>
+      <data_binding>over</data_binding>
+      <data_binding>more than</data_binding>
+      <data_binding>greater</data_binding>
+      <data_binding>less than</data_binding>
+      <data_binding>below</data_binding>
+      <data_binding>equals</data_binding>
+      <data_binding>not equals</data_binding>
+    </field>
+    <field>
       <name>PRESENTATION_TYPE</name>
       <data_binding>Line Chart</data_binding>
       <data_binding>Table</data_binding>
       <data_binding>Bar Chart</data_binding>
     </field>
+    <field>
+      <name>FUNCTION</name>
+      <data_binding>sales value</data_binding>
+      <data_binding>sale value</data_binding>
+    </field>
+    <field>
+      <name>FUNCTION</name>
+      <data_binding>sales volume</data_binding>
+      <data_binding>sale volume</data_binding>
+    </field>
+    <field>
+      <name>FUNCTION</name>
+      <data_binding>sales</data_binding>
+      <data_binding>sale</data_binding>
+      <data_binding>sales items</data_binding>
+    </field>
   </extras>
   <result>
-  <fact_table>PROCESSED_DATA</fact_table>
-  <WHERE></WHERE>
-  <SELECT></SELECT>
-  <FROM></FROM>
-  <GROUP_BY></GROUP_BY>
+    <fact_table>PROCESSED_DATA</fact_table>
+    <WHERE />
+    <SELECT />
+    <FROM />
+    <GROUP_BY />
   </result>
 </language>

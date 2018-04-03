@@ -316,25 +316,20 @@ namespace NQL_Thesis
                 var root = doc.SelectSingleNode("*");
                 FindMatchingNodesFromXml(root, nounPhrases);
 
-                if (nouns != null)
-                {
-                    for (int i = nouns.Count - 1; i >= 0; i--)
-                    {
-                        foreach (var VARIABLE in matchedWords)
-                        {
-                            if (VARIABLE.Key.contains(nouns.ElementAt(i)))
-                            {
-                                nouns.Remove(nouns.ElementAt(i));
-                            }
 
-                            // some code
-                            // safePendingList.RemoveAt(i);
+                foreach (var item in nouns.ToList())
+                {
+                    foreach (var VARIABLE in matchedWords)
+                    {
+                        if (VARIABLE.Key.Contains(item))
+                        {
+                            nouns.Remove(item);    //Will work!
                         }
                     }
                 }
 
                 FindMatchingNodesFromXml(root, verbPhrases);
-                FindMatchingNodesFromXml(root, nouns);
+               // FindMatchingNodesFromXml(root, nouns);
 
 
 
@@ -385,19 +380,15 @@ namespace NQL_Thesis
 
                 FindMatchingNodesFromXml(root, nounPhrases);
 
-                if (nouns != null)
+              
+                     
+                foreach (var item in nouns.ToList())
                 {
-                    for (int i = nouns.Count - 1; i >= 0; i--)
+                    foreach (var VARIABLE in matchedWords)
                     {
-                        foreach (var VARIABLE in matchedWords)
+                        if (VARIABLE.Key.Contains(item))
                         {
-                            if (VARIABLE.Key.contains(nouns.ElementAt(i)))
-                            {
-                                nouns.Remove(nouns.ElementAt(i));
-                            }
-
-                            // some code
-                            // safePendingList.RemoveAt(i);
+                            nouns.Remove(item);    //Will work!
                         }
                     }
                 }
@@ -473,7 +464,7 @@ namespace NQL_Thesis
                     }
 
                 }
-
+               
                 System.Diagnostics.Debug.WriteLine("\nProcessing noun phrases");
 
                 //                var manager = new Manager();
@@ -492,7 +483,9 @@ namespace NQL_Thesis
                     System.Diagnostics.Debug.WriteLine(variable.Value + "\t\t" + variable.Key);
                 }
 
-
+                doc = null;
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
                 //MATCHING WITH WORD NET
                 System.Diagnostics.Debug.WriteLine(directory);
                 //                var wordNet = new WordNetEngine();
@@ -527,7 +520,7 @@ namespace NQL_Thesis
                 //                    }
                 //                }
 
-
+                
 
             }
             catch (IOException e)
@@ -556,6 +549,8 @@ namespace NQL_Thesis
                     catch (IOException e)
                     {
                     }
+               
+                
                 }
 
 
@@ -572,8 +567,8 @@ namespace NQL_Thesis
               
 
             }
+          
 
-            
 
             return matchedWords;
         }

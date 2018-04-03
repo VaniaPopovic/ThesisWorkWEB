@@ -1,9 +1,11 @@
-﻿using System.Xml.Serialization;
+﻿using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace NQL_Thesis
 {
     public class XMLObject
     {
+
 
         /// <remarks/>
         [XmlTypeAttribute(AnonymousType = true)]
@@ -26,7 +28,8 @@ namespace NQL_Thesis
             public languageLevel[] levels { get; set; }
 
             /// <remarks/>
-            public languageExtras extras { get; set; }
+            [XmlArrayItemAttribute("field", IsNullable = false)]
+            public languageField[] extras { get; set; }
 
             /// <remarks/>
             public languageResult result { get; set; }
@@ -43,6 +46,7 @@ namespace NQL_Thesis
             public string calculation { get; set; }
 
             /// <remarks/>
+            [System.Xml.Serialization.XmlElementAttribute("data_binding")]
             public string data_binding { get; set; }
         }
 
@@ -59,15 +63,11 @@ namespace NQL_Thesis
             public languageDimensionsField1[] outlet { get; set; }
 
             /// <remarks/>
-            public object period { get; set; }
+            public languageDimensionsPeriod period { get; set; }
 
             /// <remarks/>
             [XmlArrayItemAttribute("field", IsNullable = false)]
-            public languageDimensionsField2[] customer { get; set; }
-
-            /// <remarks/>
-            [XmlArrayItemAttribute("field", IsNullable = false)]
-            public languageDimensionsField3[] city { get; set; }
+            public languageDimensionsField2[] city { get; set; }
         }
 
         /// <remarks/>
@@ -78,8 +78,8 @@ namespace NQL_Thesis
             public string name { get; set; }
 
             /// <remarks/>
-            [XmlElementAttribute("data_binding")]
-            public string[] data_binding { get; set; }
+            [System.Xml.Serialization.XmlElementAttribute("data_binding")]
+            public List<string> data_binding { get; set; }
         }
 
         /// <remarks/>
@@ -90,8 +90,19 @@ namespace NQL_Thesis
             public string name { get; set; }
 
             /// <remarks/>
-            [XmlElementAttribute("data_binding")]
-            public string[] data_binding { get; set; }
+            [System.Xml.Serialization.XmlElementAttribute("data_binding")]
+            public List<string> data_binding { get; set; }
+        }
+
+        /// <remarks/>
+        [XmlTypeAttribute(AnonymousType = true)]
+        public class languageDimensionsPeriod
+        {
+            /// <remarks/>
+            [XmlElementAttribute("data_binding", typeof(object))]
+            [XmlElementAttribute("name", typeof(string))]
+            public object[] Items { get; set; }
+            //TODO FIX ME
         }
 
         /// <remarks/>
@@ -99,27 +110,11 @@ namespace NQL_Thesis
         public class languageDimensionsField2
         {
             /// <remarks/>
-            [XmlElementAttribute("keyword")]
-            public string[] keyword { get; set; }
-
-            /// <remarks/>
             public string name { get; set; }
 
             /// <remarks/>
-            [XmlElementAttribute("data_binding")]
-            public string[] data_binding { get; set; }
-        }
-
-        /// <remarks/>
-        [XmlTypeAttribute(AnonymousType = true)]
-        public class languageDimensionsField3
-        {
-            /// <remarks/>
-            public string name { get; set; }
-
-            /// <remarks/>
-            [XmlElementAttribute("data_binding")]
-            public string[] data_binding { get; set; }
+            [System.Xml.Serialization.XmlElementAttribute("data_binding")]
+            public List<string> data_binding { get; set; }
         }
 
         /// <remarks/>
@@ -130,28 +125,20 @@ namespace NQL_Thesis
             public string name { get; set; }
 
             /// <remarks/>
-            [XmlElementAttribute("value")]
-            public string[] value { get; set; }
+            [System.Xml.Serialization.XmlElementAttribute("value")]
+            public List<string> value { get; set; }
         }
 
         /// <remarks/>
         [XmlTypeAttribute(AnonymousType = true)]
-        public class languageExtras
-        {
-            /// <remarks/>
-            public languageExtrasField field { get; set; }
-        }
-
-        /// <remarks/>
-        [XmlTypeAttribute(AnonymousType = true)]
-        public class languageExtrasField
+        public class languageField
         {
             /// <remarks/>
             public string name { get; set; }
 
             /// <remarks/>
-            [XmlElementAttribute("data_binding")]
-            public string[] data_binding { get; set; }
+            [System.Xml.Serialization.XmlElementAttribute("data_binding")]
+            public List<string> data_binding { get; set; }
         }
 
         /// <remarks/>
@@ -162,16 +149,19 @@ namespace NQL_Thesis
             public string fact_table { get; set; }
 
             /// <remarks/>
-            public string WHERE { get; set; }
+            public object WHERE { get; set; }
 
             /// <remarks/>
-            public string SELECT { get; set; }
+            public object SELECT { get; set; }
 
             /// <remarks/>
-            public string GROUP_BY { get; set; }
+            public object FROM { get; set; }
+
             /// <remarks/>
-            public string FROM { get; set; }
+            public object GROUP_BY { get; set; }
         }
+
+
 
 
     }

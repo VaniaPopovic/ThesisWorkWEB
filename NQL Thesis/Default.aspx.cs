@@ -105,6 +105,9 @@ namespace NQL_Thesis
 
         protected void QueryButtonSubmit(object sender, EventArgs e)
         {
+
+            Manager manager = new Manager();
+            manager.Manage();
             //multitxt.Text = "";
             string query = txtquery.Text;
 
